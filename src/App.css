@@ -28,6 +28,31 @@
   color: #61dafb;
 }
 
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 100px;
+  font-family: 'Gambetta', serif;
+  letter-spacing: -3px;
+  transition: 700ms ease;
+  font-variation-settings: "wght" 311;
+  margin-bottom: 0.8rem;
+  color: PaleGoldenRod;
+  outline: none;
+  text-align: center;
+}
+
+h2:hover {
+  letter-spacing: 1px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
