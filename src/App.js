@@ -1,5 +1,5 @@
 import './App.css';
-import Button from './components/Button';
+import LinkButton from './components/LinkButton';
 
 //App
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <div class = "container">
           <h2>Login to View Attendance</h2>
-        <Button class ="loginButton" message="Login" />
+          <LinkButton class ="loginButton" message="Login" localLink='./routes/login'/>
         </div>
       </header>
     </div>
