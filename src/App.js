@@ -1,16 +1,17 @@
 import './App.css';
-import LinkButton from './components/LinkButton';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Index from './routes';
+import Login from './routes/login';
 
-//App
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div class = "container">
-          <h2>Login to View Attendance</h2>
-          <LinkButton class ="loginButton" message="Login" localLink='./routes/login'/>
-        </div>
-      </header>
+      <Router>
+        <Routes>
+          <Route index element={<Index />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

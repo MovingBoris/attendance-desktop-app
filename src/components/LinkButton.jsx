@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-//Button takes a message and local link
-const LinkButton = ({message, localLink}) => {
+//Button takes a message and component route
+const LinkButton = ({message, componentRoute}) => {
     //Manual and automatic style generation
     const buttonStyle = {
         backgroundColor: 'PaleGoldenRod',
@@ -16,11 +17,11 @@ const LinkButton = ({message, localLink}) => {
   //returns the button inside of a div, makes padding and styling easier
   return (
     <div>
-      <a href={localLink}>
+      <Link to={componentRoute}>
         <button style={buttonStyle}>
           {message}
         </button>
-      </a>
+      </Link>
     </div>
   );
 };
@@ -28,7 +29,7 @@ const LinkButton = ({message, localLink}) => {
 //Required properties to use the component
 LinkButton.propTypes = {
   message: PropTypes.string.isRequired,
-  localLink: PropTypes.string.isRequired,
+  componentRoute: PropTypes.string.isRequired,
 };
 
 export default LinkButton;
