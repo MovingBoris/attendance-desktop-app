@@ -22,8 +22,8 @@ const styles = {
     borderRadius: '10px',
     overflow: 'hidden',
     border: '1px solid #ccc',
-    width: '400px',
-    height: '200px',
+    width: '800px',
+    height: '425px',
     margin: 'auto',
     marginTop: '50px',
   },
@@ -63,9 +63,11 @@ const styles = {
     cursor: 'pointer',
   },
   logo: {
-    width: '50px',
-    height: '50px',
+    width: '100px',
+    height: '100px',
     marginTop: '10px',
+    marginBottom: '10px',
+    padding: '10px'
   },
 };
 
