@@ -47,6 +47,7 @@ h2 {
   outline: none;
   text-align: center;
   animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both; /* Added animation for pop effect */
+  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both; /* Added animation for pop effect */
 }
 
 h2:hover {
