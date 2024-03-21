@@ -19,7 +19,7 @@ const Index = () => {
         <div className={`school-login-page ${showContent ? 'show-content' : ''}`}>
             <div className="content-container">
                 <div className="container">
-                    <h2 className="welcome">Welcome to Our School</h2> {/* Added 'welcome' class */}
+                    <h2 className="welcome">NESCC</h2> {/* Added 'welcome' class */}
                     <p className="intro-text">Please login to view attendance and other important information.</p>
                     <LinkButton className="loginButton" message="Login" componentRoute="/login" />
                 </div>
