@@ -30,7 +30,6 @@
 
 .container {
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,6 +46,7 @@ h2 {
   color: PaleGoldenRod;
   outline: none;
   text-align: center;
+  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both; /* Added animation for pop effect */
 }
 
 h2:hover {
@@ -61,7 +61,6 @@ h2:hover {
     transform: rotate(360deg);
   }
 }
-
 
 @keyframes popIn {
   0% {
@@ -187,3 +186,4 @@ h2.welcome {
     transform: translateY(0);
   }
 }
+
