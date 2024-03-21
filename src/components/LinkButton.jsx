@@ -1,35 +1,32 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import '../LinkButton.css'; // Import CSS file for additional styles
+import { useEffect } from 'react';
 
-//Button takes a message and component route
-const LinkButton = ({message, componentRoute}) => {
-    //Manual and automatic style generation
-    const buttonStyle = {
-        backgroundColor: 'PaleGoldenRod',
-        color: 'black',
-        padding: '10px 20px',
-        border: 'none',
-        borderRadius: '10px',
-        cursor: 'pointer',
-        fontSize: '20px',
-      };
+const LinkButton = ({ message, componentRoute }) => {
+    useEffect(() => {
+        const button = document.querySelector('.link-button');
+        if (button) {
+            button.classList.remove('animate'); // Remove the animation class
+            void button.offsetWidth; // Trigger reflow
+            button.classList.add('animate'); // Add the animation class to trigger animation
+        }
+    }, []); // Run once on component mount
 
-  //returns the button inside of a div, makes padding and styling easier
-  return (
-    <div>
-      <Link to={componentRoute}>
-        <button style={buttonStyle}>
-          {message}
-        </button>
-      </Link>
-    </div>
-  );
+    return (
+        <div>
+            <Link to={componentRoute}>
+                <button className="link-button">
+                    {message}
+                </button>
+            </Link>
+        </div>
+    );
 };
 
-//Required properties to use the component
 LinkButton.propTypes = {
-  message: PropTypes.string.isRequired,
-  componentRoute: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    componentRoute: PropTypes.string.isRequired,
 };
 
 export default LinkButton;

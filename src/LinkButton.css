@@ -1,0 +1,41 @@
+
+/* Animation keyframes */
+@keyframes popUpAnimation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1); /* Scale up slightly halfway through the animation */
+        opacity: 0.5; /* Adjust opacity halfway through the animation */
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.link-button {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for smooth hover effect */
+    animation: popUpAnimation 3s ease; /* Apply the animation */
+}
+
+/* Hover effect */
+.link-button:hover {
+    background-color: #c5c5c4; /* Change background color on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+
+/* Hover effect */
+.link-button:hover {
+    background-color: #c5c5c4; /* Change background color on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
