@@ -1,10 +1,13 @@
 import React from 'react';
 import '../App.css';
 import SquareWithImageAndForm from '../components/SquareWithImageAndForm'; // Import the component
+import { Link } from 'react-router-dom';
 
 const login = () => {
   const handleSubmit = () => {
     // Handle form submission logic here
+    <Link to={'/InstructorPage'}>
+    </Link>
   };
 
   return (
