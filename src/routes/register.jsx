@@ -44,22 +44,46 @@ function Register() {
                 },
                 body: JSON.stringify({
                     email: email,
-                    password: password,
+                    password: password
                 }),
             })
-                .then((response) => {
-                    // handle success or error from the server
-                    console.log(response);
-                    if (response.ok)
-                        setError("Successful register.");
-                    else
-                        setError("Error registering.");
+
+            .then((response) => {
+                // Check if the response is successful
+                if (response.ok) 
+                {
+                    // Handle successful registration
+                    setError("Successful register.");
                     return response.json();
-                })
-                .catch((error) => {
+                } 
+                else 
+                {
+                    // Parse the JSON error response
+                    return response.json().then((errorData) => {
+                        // Extract the error messages from the response
+                        const errors = errorData.errors;
+                        let errorMessage = "Error registering:";
+                        
+                        // Loop through the errors object and concatenate error messages
+                        for (const key in errors) 
+                        {
+                            if (errors.hasOwnProperty(key)) 
+                            {
+                                errorMessage += " " + errors[key][0]; // Assuming each error key has only one message
+                            }
+                        }
+                        
+                        // Handle the error and display the error message
+                        setError(errorMessage);
+                    });
+                }
+            })
+
+                .catch((error) => 
+                {
                     // handle network error
                     console.error(error);
-                    setError("Error registering.");
+                    setError("Network Error: " + error);
                 });
         }
     };
