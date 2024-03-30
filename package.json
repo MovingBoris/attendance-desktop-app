@@ -1,4 +1,7 @@
 {
+
+  "proxy": "https://localhost:7167",
+
   "name": "attendance-desktop-app",
   "version": "0.1.0",
   "private": true,
@@ -11,7 +14,6 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -39,6 +41,7 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.22.1"
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "^5.0.1"
   }
 }
