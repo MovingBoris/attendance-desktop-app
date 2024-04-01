@@ -36,3 +36,34 @@
 .card-link:hover .card-title {
   color: #007bff; /* Change the title color on hover if needed */
 }
+.card-container {
+  display: flex;
+  justify-content: space-around; /* Spread out the cards evenly */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line if necessary */
+}
+
+.card {
+  width: 250px; /* Set a fixed width for each card */
+  padding: 20px;
+  margin: 20px; /* Add some margin around each card for spacing */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover .card {
+  border-color: #007bff;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #666;
+}

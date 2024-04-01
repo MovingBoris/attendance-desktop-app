@@ -11,12 +11,32 @@ function AdminPage() {
                 <Greeting />
                 <div className="card-container">
                     <Card
-                        title="CITC 1301"
+                        title="View Classes"
                         link="https://google.com"
                         text="Class"
                     />
                     <Card
-                        title="CITC 1302"
+                        title="Edit Classes"
+                        link="https://google.com"
+                        text="Class"
+                    />
+                    <Card
+                        title="View Attendance"
+                        link="https://google.com"
+                        text="Class"
+                    />
+                    <Card
+                        title="Edit Attendance"
+                        link="https://google.com"
+                        text="Class"
+                    />
+                    <Card
+                        title="View Instructors"
+                        link="https://google.com"
+                        text="Class"
+                    />
+                    <Card
+                        title="Edit Instructors"
                         link="https://google.com"
                         text="Class"
                     />
