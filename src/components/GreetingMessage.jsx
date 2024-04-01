@@ -15,12 +15,11 @@ function Greeting() {
         }
     };
     
-    // possible to add more items such as professor name 
     return (
         <div className="greeting">
-            <h1>Good {timeOfDay}!</h1>
+            <h1>Good {timeOfDay()}!</h1>
         </div>
     );
-}
+} 
 
 export default Greeting;

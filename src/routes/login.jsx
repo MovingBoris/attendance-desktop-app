@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LinkButton from "../components/LinkButton";
 
 function Login() {
   // state variables for email and passwords
@@ -55,7 +56,7 @@ function Login() {
           console.log(data);
           if (data.ok) {
             setError("Successful Login.");
-            window.location.href = '/';
+            window.location.href = '/AdminPage';
           }
           else
             setError("Error Logging In.");
@@ -73,6 +74,7 @@ function Login() {
   return (
     <div className="containerbox">
       <h3>Login</h3>
+      <LinkButton className="loginButton" message="Admin Page" componentRoute="/AdminPage" />
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
         <input

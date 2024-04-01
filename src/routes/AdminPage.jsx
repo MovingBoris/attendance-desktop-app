@@ -3,7 +3,7 @@ import Navbar from "../components/NavigationBar";
 import Greeting from "../components/GreetingMessage";
 import Card from "../components/Card";
 
-function InstructorPage() {
+function AdminPage() {
     return (
         <div className="main">
             <Navbar />
@@ -11,14 +11,14 @@ function InstructorPage() {
                 <Greeting />
                 <div className="card-container">
                     <Card
-                        title="Example"
+                        title="CITC 1301"
                         link="https://google.com"
-                        text="This is an exmaple"
+                        text="Class"
                     />
                     <Card
-                        title="Example 2"
+                        title="CITC 1302"
                         link="https://google.com"
-                        text="This is an exmaple 2"
+                        text="Class"
                     />
                 </div>
             </div>
@@ -26,4 +26,4 @@ function InstructorPage() {
     );
 }
 
-export default InstructorPage;
+export default AdminPage;
