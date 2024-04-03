@@ -4,6 +4,7 @@ import Index from './routes';
 import Login from './routes/login';
 import Register from './routes/register';
 import AdminPage from './routes/AdminPage';
+import Navbar from './components/NavigationBar'; 
 
 function App() {
   return (
