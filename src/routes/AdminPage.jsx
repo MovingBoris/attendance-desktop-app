@@ -12,7 +12,7 @@ function AdminPage() {
                 <div className="card-container">
                     <Card
                         title="View Classes"
-                        link="https://google.com"
+                        link="/AdminClasses"
                         text="Class"
                     />
                     <Card

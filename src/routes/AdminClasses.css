@@ -1,0 +1,16 @@
+.class-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.class-table th,
+.class-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.class-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+ 
