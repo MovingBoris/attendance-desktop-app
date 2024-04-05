@@ -36,8 +36,8 @@ function AdminPage() {
                         text="Class"
                     />
                     <Card
-                        title="Edit Instructors"
-                        link="https://google.com"
+                        title="CSV Class Upload"
+                        link="/CsvUpload"
                         text="Class"
                     />
                 </div>
