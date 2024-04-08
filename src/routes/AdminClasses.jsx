@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/NavigationBar";
-import "./AdminClasses.css"; // Import CSS file for styling
+import "./TableFormat.css"; // Import CSS file for styling
 
 function AdminClasses() {
     const [classes, setClasses] = useState([]);
@@ -28,7 +28,7 @@ function AdminClasses() {
         <div>
             <Navbar />
             {error && <p>{error}</p>}
-            <table className="class-table">
+            <table className="tableAPI">
                 <thead>
                     <tr>
                         <th>Class ID</th>

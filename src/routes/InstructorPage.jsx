@@ -11,14 +11,24 @@ function InstructorPage() {
                 <Greeting />
                 <div className="card-container">
                     <Card
-                        title="Example"
-                        link="https://google.com"
-                        text="This is an exmaple"
+                        title="View Classes"
+                        link="/AdminClasses"
+                        text="Class"
+                    />
+                     <Card
+                        title="View Attendance"
+                        link="/AdminAttendance"
+                        text="Attendance"
                     />
                     <Card
-                        title="Example 2"
+                        title="Edit Attendance"
                         link="https://google.com"
-                        text="This is an exmaple 2"
+                        text="Attendance"
+                    />
+                    <Card
+                        title="Post Attendance"
+                        link="https://google.com"
+                        text="Attendance"
                     />
                 </div>
             </div>

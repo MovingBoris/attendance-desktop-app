@@ -75,6 +75,7 @@ function Login() {
     <div className="containerbox">
       <h3>Login</h3>
       <LinkButton className="loginButton" message="Admin Page" componentRoute="/AdminPage" />
+      <LinkButton className="loginButton" message="Instructor Page" componentRoute="/InstructorPage" />
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
         <input

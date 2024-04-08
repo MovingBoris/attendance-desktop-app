@@ -1,15 +1,15 @@
-.class-table {
+.tableAPI {
     width: 100%;
     border-collapse: collapse;
 }
 
-.class-table th,
-.class-table td {
+.tableAPI th,
+.tableAPI td {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-.class-table th {
+.tableAPI th {
     background-color: #f2f2f2;
     text-align: left;
 }

@@ -21,19 +21,34 @@ function AdminPage() {
                         text="Class"
                     />
                     <Card
-                        title="View Attendance"
+                        title="Post Classes"
                         link="https://google.com"
                         text="Class"
+                    />
+                    <Card
+                        title="View Attendance"
+                        link="/AdminAttendance"
+                        text="Attendance"
                     />
                     <Card
                         title="Edit Attendance"
                         link="https://google.com"
-                        text="Class"
+                        text="Attendance"
                     />
                     <Card
                         title="View Instructors"
-                        link="https://google.com"
-                        text="Class"
+                        link="/AdminInstructors"
+                        text="Instructors"
+                    />
+                    <Card
+                        title="Edit Instructors"
+                        link="/AdminInstructors"
+                        text="Instructors"
+                    />
+                    <Card
+                        title="Post Instructors"
+                        link="/AdminInstructors"
+                        text="Instructors"
                     />
                     <Card
                         title="CSV Class Upload"

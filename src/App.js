@@ -6,6 +6,9 @@ import Register from './routes/register';
 import AdminPage from './routes/AdminPage';
 import AdminClasses from './routes/AdminClasses';
 import CsvUpload from './routes/csvupload';
+import AdminInstructors from './routes/AdminInstructors'
+import AdminAttendance from './routes/AdminAttendance'
+import InstructorPage from './routes/InstructorPage';
 function App() {
   return (
     <div className="App">
@@ -15,8 +18,11 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path= '/register' element={<Register/>}/>
           <Route path= '/AdminPage' element={<AdminPage />} />
-            <Route path= '/AdminClasses' element={<AdminClasses/>} />
-            <Route path= '/csvupload' element={<CsvUpload/>} />
+          <Route path= '/InstructorPage' element={<InstructorPage />} />
+          <Route path= '/AdminClasses' element={<AdminClasses/>} />
+          <Route path= '/csvupload' element={<CsvUpload/>} />
+          <Route path= '/AdminInstructors' element={<AdminInstructors/>} />
+          <Route path= '/AdminAttendance' element={<AdminAttendance/>} />
         </Routes>
       </Router>
     </div>
