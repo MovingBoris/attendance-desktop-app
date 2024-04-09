@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import LinkButton from "../components/LinkButton";
 
 function Login() {
-  // state variables for email and passwords
-  const [email, setEmail] = useState("");
+  // state variables for username and password
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberme, setRememberme] = useState(false);
   // state variable for error messages
@@ -14,20 +14,20 @@ function Login() {
   // handle change events for input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "email") setEmail(value);
+    if (name === "username") setUsername(value);
     if (name === "password") setPassword(value);
     if (name === "rememberme") setRememberme(e.target.checked);
   };
 
   const handleRegisterClick = () => {
-    navigate("/register");
+    navigate("/Roles/login");
   }
 
   // handle submit event for the form
   const handleSubmit = (e) => {
     e.preventDefault();
-    // validate email and passwords
-    if (!email || !password) {
+    // validate username and passwords
+    if (!username || !password) {
       setError("Please fill in all fields.");
     } else {
       // clear error message
@@ -46,7 +46,7 @@ function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: email,
+          email: username, // Changed to username
           password: password,
         }),
       })
@@ -77,12 +77,12 @@ function Login() {
       <LinkButton className="loginButton" message="Admin Page" componentRoute="/AdminPage" />
       <LinkButton className="loginButton" message="Instructor Page" componentRoute="/InstructorPage" />
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="username">Username:</label> {/* Changed from email to username */}
         <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
+          type="text"
+          id="username"
+          name="username"
+          value={username}
           onChange={handleChange}
         />
         <label htmlFor="password">Password:</label>
