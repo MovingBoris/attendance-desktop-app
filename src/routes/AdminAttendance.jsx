@@ -9,7 +9,7 @@ function AdminAttendance() {
 
     const handleGetAttendanceByClassId = async () => {
         try {
-            const response = await fetch(`/api/Attends/by_class_id?classId=${searchValue}`);
+            const response = await fetch(`/api/Attends/class-id/${searchValue}`);
             if (!response.ok) {
                 throw new Error("Failed to fetch attendance by Class ID");
             }
@@ -25,7 +25,7 @@ function AdminAttendance() {
 
     const handleGetAttendanceByStudentUsername = async () => {
         try {
-            const response = await fetch(`/api/Attends/by_username?studentUsername=${searchValue}`);
+            const response = await fetch(`/api/Attends/by-username/${searchValue}`);
             if (!response.ok) {
                 throw new Error("Failed to fetch attendance by Student Username");
             }
@@ -57,7 +57,12 @@ function AdminAttendance() {
 
     const handleSearchFormSubmit = async (event) => {
         event.preventDefault();
-        await handleGetAttendance();
+        console.log("Form submitted"); // Check if this message appears in the console
+        try {
+            await handleGetAttendance();
+        } catch (error) {
+            console.error("Error:", error);
+    }
     };
 
     return (
