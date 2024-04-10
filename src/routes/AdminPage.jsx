@@ -46,8 +46,8 @@ function AdminPage() {
                         text="Instructors"
                     />
                     <Card
-                        title="Post Instructors"
-                        link="/AdminInstructors"
+                        title="Add Instructor"
+                        link="/PostInstructor"
                         text="Instructors"
                     />
                     <Card

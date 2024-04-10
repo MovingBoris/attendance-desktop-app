@@ -9,6 +9,7 @@ import CsvUpload from './routes/csvupload';
 import AdminInstructors from './routes/AdminInstructors'
 import AdminAttendance from './routes/AdminAttendance'
 import InstructorPage from './routes/InstructorPage';
+import PostInstructor from './routes/PostInstructor'
 function App() {
   return (
     <div className="App">
@@ -23,6 +24,7 @@ function App() {
           <Route path= '/csvupload' element={<CsvUpload/>} />
           <Route path= '/AdminInstructors' element={<AdminInstructors/>} />
           <Route path= '/AdminAttendance' element={<AdminAttendance/>} />
+          <Route path= '/PostInstructor' element={<PostInstructor/>} />
         </Routes>
       </Router>
     </div>

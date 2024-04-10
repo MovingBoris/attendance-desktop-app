@@ -25,7 +25,7 @@ function Navbar() {
             </div>
             <ul className={`navbar-links ${isOpen ? "active" : ""}`}>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/AdminPage">Home</Link>
                 </li>
                 <li>
                     <Link to="/">Students</Link>

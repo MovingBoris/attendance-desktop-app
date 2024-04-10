@@ -12,6 +12,7 @@
   margin: 8px; /* Adjust margin as needed */
   max-width: 300px; /* Adjust the max-width to your preference */
   width: calc(100% - 16px); /* Calculate the width minus the margin */
+  transition: transform 0.3s ease;
 }
 
 .card-title {
@@ -31,10 +32,12 @@
 
 .card-link:hover .card {
   background-color: #f0f0f0; /* Change the background color on hover if needed */
+  transform: scale(1.05);
 }
 
 .card-link:hover .card-title {
   color: #007bff; /* Change the title color on hover if needed */
+  
 }
 .card-container {
   display: flex;

@@ -1,40 +1,110 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/NavigationBar";
-import "./TableFormat.css"; // Import CSS file for styling
 
 function AdminAttendance() {
     const [attendance, setAttendance] = useState([]);
     const [error, setError] = useState(null);
+    const [searchOption, setSearchOption] = useState("classId");
+    const [searchValue, setSearchValue] = useState("");
 
-    const handleGetAttendance = async () => {
+    const handleGetAttendanceByClassId = async () => {
         try {
-            // set api endpoint here
-            const response = await fetch("/api/Attends"); 
+            const response = await fetch(`/api/Attends/by_class_id?classId=${searchValue}`);
             if (!response.ok) {
-                throw new Error("Failed to fetch attendance");
+                throw new Error("Failed to fetch attendance by Class ID");
             }
             const data = await response.json();
-            setAttendance(data);
+            setAttendance(data.map(item => ({
+                ...item,
+                attendanceDate: new Date(item.attendanceDate).toLocaleString()
+            })));
         } catch (error) {
             setError(error.message);
         }
     };
 
-    useEffect(() => {
-        handleGetAttendance(); // this calls the function when the page loads
-    }, []); // Empty dependency array ensures that this effect runs only once when the component mounts
+    const handleGetAttendanceByStudentUsername = async () => {
+        try {
+            const response = await fetch(`/api/Attends/by_username?studentUsername=${searchValue}`);
+            if (!response.ok) {
+                throw new Error("Failed to fetch attendance by Student Username");
+            }
+            const data = await response.json();
+            setAttendance(data.map(item => ({
+                ...item,
+                attendanceDate: new Date(item.attendanceDate).toLocaleString()
+            })));
+        } catch (error) {
+            setError(error.message);
+        }
+    };
+
+    const handleGetAttendance = async () => {
+        if (searchOption === "classId") {
+            await handleGetAttendanceByClassId();
+        } else if (searchOption === "studentUsername") {
+            await handleGetAttendanceByStudentUsername();
+        }
+    };
+
+    const handleOptionChange = (event) => {
+        setSearchOption(event.target.value);
+    };
+
+    const handleSearchInputChange = (event) => {
+        setSearchValue(event.target.value);
+    };
+
+    const handleSearchFormSubmit = async (event) => {
+        event.preventDefault();
+        await handleGetAttendance();
+    };
 
     return (
         <div>
             <Navbar />
-            {error && <p>{error}</p>}
-            <table className="tableAPI">
+            
+            <div style={styles.searchFormContainer}>
+                <form onSubmit={handleSearchFormSubmit} style={styles.searchForm}>
+                    <div style={styles.searchOptions}>
+                        <label>
+                            <input 
+                                type="radio" 
+                                value="classId" 
+                                checked={searchOption === "classId"} 
+                                onChange={handleOptionChange} 
+                            />
+                            Search by Class ID
+                        </label>
+                        <label>
+                            <input 
+                                type="radio" 
+                                value="studentUsername" 
+                                checked={searchOption === "studentUsername"} 
+                                onChange={handleOptionChange} 
+                            />
+                            Search by Student Username
+                        </label>
+                    </div>
+                    <div style={styles.searchInput}>
+                        <input 
+                            type="text" 
+                            value={searchValue} 
+                            onChange={handleSearchInputChange} 
+                            placeholder={searchOption === "classId" ? "Enter Class ID" : "Enter Student Username"} 
+                        />
+                        <button style={styles.searchButton} type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+            {error && <p style={styles.errorMessage}>{error}</p>}
+            <table style={styles.attendanceTable}>
                 <thead>
                     <tr>
                         <th>Student UUID</th>
-                        <th>Class Id</th>
+                        <th>Class ID</th>
                         <th>Attendance Date</th>
-                        <th>SemesterCode</th>
+                        <th>Semester Code</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,5 +121,43 @@ function AdminAttendance() {
         </div>
     );
 }
+
+const styles = {
+    errorMessage: {
+        color: "red",
+        fontWeight: "bold",
+        textAlign: "center",
+        marginBottom: "20px",
+    },
+    searchFormContainer: {
+        margin: "0 auto", // Center the container horizontally
+        width: "80%", // Set width to 80% of the parent container
+    },
+    searchForm: {
+        marginBottom: "20px",
+        marginTop: "20px",
+        height: "150px"
+    },
+    searchOptions: {
+        marginBottom: "20px",
+    },
+    searchInput: {
+        margin: "auto"
+    },
+    searchButton: {
+        marginLeft: "10px",
+        padding: "10px 20px",
+        background: "#007bff",
+        color: "#fff",
+        border: "none",
+        borderRadius: "3px",
+        cursor: "pointer",
+        fontSize: "16px",
+    },
+    attendanceTable: {
+        width: "100%",
+        borderCollapse: "collapse",
+    },
+};
 
 export default AdminAttendance;
