@@ -9,6 +9,31 @@ function Navbar() {
         setIsOpen(!isOpen);
     };
 
+    // Function to handle logout
+    const handleLogout  = async () => {
+        
+        try {
+            const response = await fetch('/logout', {
+                method: 'POST', // or 'GET', 'PUT', etc. depending on your server implementation
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Include any authentication token or session ID if required
+                },
+                // Include any request body if required
+            });
+    
+            if (!response.ok) {
+                throw new Error('Logout request failed');
+            }
+    
+            // Redirect to the login page or perform any other action upon successful logout
+            window.location.href = '/login'; // Redirect to the login page
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle errors if necessary
+        }
+    };
+
     return (
         <nav className="navbar">
             <div className="navbar-logo">
@@ -37,8 +62,7 @@ function Navbar() {
                     <Link to="/">Instructors</Link>
                 </li>
                 <li>
-                    <Link to="/">Settings</Link>
-                    
+                    <button id="logout" onClick={handleLogout}>Logout</button>
                 </li>
             </ul>
             <div className="navbar-toggle" onClick={toggleNavbar}>

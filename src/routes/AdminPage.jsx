@@ -42,7 +42,7 @@ function AdminPage() {
                     />
                     <Card
                         title="Edit Instructors"
-                        link="/AdminInstructors"
+                        link="https://google.com"
                         text="Instructors"
                     />
                     <Card

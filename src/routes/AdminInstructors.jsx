@@ -8,13 +8,14 @@ function AdminInstructors() {
 
     const handleGetInstructors = async () => {
         try {
-            // set api endpoint here
             const response = await fetch("/api/Users"); 
             if (!response.ok) {
                 throw new Error("Failed to fetch instructors");
             }
             const data = await response.json();
-            setInstructors(data);
+            // Extract the array of instructors from the response data
+            const instructorsData = data.$values || []; 
+            setInstructors(instructorsData);
         } catch (error) {
             setError(error.message);
         }
@@ -25,25 +26,25 @@ function AdminInstructors() {
     }, []); // Empty dependency array ensures that this effect runs only once when the component mounts
 
     return (
-        <div>
+        <div className="admin-instructors-container">
             <Navbar />
-            {error && <p>{error}</p>}
             <table className="tableAPI">
                 <thead>
                     <tr>
-                        <th>User Id</th>
+                        <th>User ID</th>
                         <th>Username</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {instructors.map((instructorItem, index) => (
-                        <tr key={index}>
-                            <td>{instructorItem.userId}</td>
-                            <td>{instructorItem.userName}</td>
+                    {instructors.map((instructor, index) => (
+                        <tr key={index} className="instructor-row">
+                            <td>{instructor.userId}</td>
+                            <td>{instructor.userName}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            {error && <p className="error-message">Error: {error}</p>}
         </div>
     );
 }

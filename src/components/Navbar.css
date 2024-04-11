@@ -145,3 +145,21 @@
   background-color: #ccc; /* Color of the separator bar */
   margin: 0 10px; /* Adjust spacing */
 }
+
+#logout {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  margin-top: 3px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;  
+}
+
+
+#logout:hover {
+  color: #46c0b2; /* Change text color */
+  cursor: pointer;
+  border-bottom: 2px solid #46c0b2; /* Add line under text */
+  transition: border-bottom 0.3s ease; /* Add animation to line */  
+}

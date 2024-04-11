@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/NavigationBar";
+import "./TableFormat.css";
 
 function AdminAttendance() {
     const [attendance, setAttendance] = useState([]);
@@ -14,7 +15,8 @@ function AdminAttendance() {
                 throw new Error("Failed to fetch attendance by Class ID");
             }
             const data = await response.json();
-            setAttendance(data.map(item => ({
+            const attendanceData = data.$values || [];
+            setAttendance(attendanceData.map(item => ({
                 ...item,
                 attendanceDate: new Date(item.attendanceDate).toLocaleString()
             })));
@@ -30,7 +32,8 @@ function AdminAttendance() {
                 throw new Error("Failed to fetch attendance by Student Username");
             }
             const data = await response.json();
-            setAttendance(data.map(item => ({
+            const attendanceData = data.$values || [];
+            setAttendance(attendanceData.map(item => ({
                 ...item,
                 attendanceDate: new Date(item.attendanceDate).toLocaleString()
             })));
@@ -57,22 +60,20 @@ function AdminAttendance() {
 
     const handleSearchFormSubmit = async (event) => {
         event.preventDefault();
-        console.log("Form submitted"); // Check if this message appears in the console
         try {
             await handleGetAttendance();
         } catch (error) {
-            console.error("Error:", error);
-    }
+            setError(error.message);
+        }
     };
 
     return (
         <div>
             <Navbar />
-            
-            <div style={styles.searchFormContainer}>
-                <form onSubmit={handleSearchFormSubmit} style={styles.searchForm}>
-                    <div style={styles.searchOptions}>
-                        <label>
+            <div className="searchFormContainer">
+                <form onSubmit={handleSearchFormSubmit} className="searchForm">
+                    <div className="searchOptions">
+                        <label className="radioLabel">
                             <input 
                                 type="radio" 
                                 value="classId" 
@@ -81,7 +82,7 @@ function AdminAttendance() {
                             />
                             Search by Class ID
                         </label>
-                        <label>
+                        <label className="radioLabel">
                             <input 
                                 type="radio" 
                                 value="studentUsername" 
@@ -91,25 +92,24 @@ function AdminAttendance() {
                             Search by Student Username
                         </label>
                     </div>
-                    <div style={styles.searchInput}>
+                    <div className="searchInput">
                         <input 
                             type="text" 
                             value={searchValue} 
                             onChange={handleSearchInputChange} 
                             placeholder={searchOption === "classId" ? "Enter Class ID" : "Enter Student Username"} 
                         />
-                        <button style={styles.searchButton} type="submit">Search</button>
+                        <button className="searchButton" type="submit">Search</button>
                     </div>
                 </form>
             </div>
-            {error && <p style={styles.errorMessage}>{error}</p>}
-            <table style={styles.attendanceTable}>
+            {error && <p className="error-message">{error}</p>}
+            <table className="tableAPI">
                 <thead>
                     <tr>
                         <th>Student UUID</th>
                         <th>Class ID</th>
                         <th>Attendance Date</th>
-                        <th>Semester Code</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -118,7 +118,6 @@ function AdminAttendance() {
                             <td>{attendanceItem.studentUuid}</td>
                             <td>{attendanceItem.classId}</td>
                             <td>{attendanceItem.attendanceDate}</td>
-                            <td>{attendanceItem.semesterCode}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -126,43 +125,5 @@ function AdminAttendance() {
         </div>
     );
 }
-
-const styles = {
-    errorMessage: {
-        color: "red",
-        fontWeight: "bold",
-        textAlign: "center",
-        marginBottom: "20px",
-    },
-    searchFormContainer: {
-        margin: "0 auto", // Center the container horizontally
-        width: "80%", // Set width to 80% of the parent container
-    },
-    searchForm: {
-        marginBottom: "20px",
-        marginTop: "20px",
-        height: "150px"
-    },
-    searchOptions: {
-        marginBottom: "20px",
-    },
-    searchInput: {
-        margin: "auto"
-    },
-    searchButton: {
-        marginLeft: "10px",
-        padding: "10px 20px",
-        background: "#007bff",
-        color: "#fff",
-        border: "none",
-        borderRadius: "3px",
-        cursor: "pointer",
-        fontSize: "16px",
-    },
-    attendanceTable: {
-        width: "100%",
-        borderCollapse: "collapse",
-    },
-};
 
 export default AdminAttendance;
