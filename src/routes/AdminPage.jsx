@@ -21,8 +21,8 @@ function AdminPage() {
                         text="Class"
                     />
                     <Card
-                        title="Post Classes"
-                        link="https://google.com"
+                        title="Add Class"
+                        link="/AddClass"
                         text="Class"
                     />
                     <Card

@@ -14,23 +14,21 @@ function Navbar() {
         
         try {
             const response = await fetch('/logout', {
-                method: 'POST', // or 'GET', 'PUT', etc. depending on your server implementation
+                method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json',
-                    // Include any authentication token or session ID if required
+                    
                 },
-                // Include any request body if required
+                
             });
     
             if (!response.ok) {
                 throw new Error('Logout request failed');
             }
     
-            // Redirect to the login page or perform any other action upon successful logout
             window.location.href = '/login'; // Redirect to the login page
         } catch (error) {
             console.error('Error:', error);
-            // Handle errors if necessary
         }
     };
 
@@ -56,10 +54,10 @@ function Navbar() {
                     <Link to="/">Students</Link>
                 </li>
                 <li>
-                    <Link to="/">Courses</Link>
+                    <Link to="/Classes">Courses</Link>
                 </li>
                 <li>
-                    <Link to="/">Instructors</Link>
+                    <Link to="/ViewInstructors">Instructors</Link>
                 </li>
                 <li>
                     <button id="logout" onClick={handleLogout}>Logout</button>

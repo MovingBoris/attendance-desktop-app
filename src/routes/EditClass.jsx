@@ -62,7 +62,7 @@ function EditClass() {
       });
 
       if (response.ok) {
-        console.log('Class updated successfully');
+        alert('Class updated successfully!');
         // Refresh classes after successful update
         handleGetClasses();
       } else {

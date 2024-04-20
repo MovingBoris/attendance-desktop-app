@@ -4,13 +4,15 @@ import Index from './routes';
 import Login from './routes/login';
 import Register from './routes/register';
 import AdminPage from './routes/AdminPage';
-import AdminClasses from './routes/AdminClasses';
+import Classes from './routes/Classes';
 import CsvUpload from './routes/csvupload';
-import AdminInstructors from './routes/AdminInstructors';
+import ViewInstructors from './routes/ViewInstructors';
 import AdminAttendance from './routes/AdminAttendance';
 import InstructorPage from './routes/InstructorPage';
 import PostInstructor from './routes/PostInstructor';
 import EditClass from './routes/EditClass';
+import AddClass from './routes/AddClass';
+
 function App() {
   return (
     <div className="App">
@@ -21,16 +23,17 @@ function App() {
           <Route path= '/register' element={<Register/>}/>
           <Route path= '/AdminPage' element={<AdminPage />} />
           <Route path= '/InstructorPage' element={<InstructorPage />} />
-          <Route path= '/AdminClasses' element={<AdminClasses/>} />
+          <Route path= '/Classes' element={<Classes/>} />
           <Route path= '/csvupload' element={<CsvUpload/>} />
-          <Route path= '/AdminInstructors' element={<AdminInstructors/>} />
+          <Route path= '/ViewInstructors' element={<ViewInstructors/>} />
           <Route path= '/AdminAttendance' element={<AdminAttendance/>} />
           <Route path= '/PostInstructor' element={<PostInstructor/>} />
           <Route path= '/EditClass' element={<EditClass/>} />
+          <Route path= '/AddClass' element={<AddClass/>} />
+
         </Routes>
       </Router>
     </div>
   );
 }
-
 export default App;
