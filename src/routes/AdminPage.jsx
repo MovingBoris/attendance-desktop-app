@@ -17,7 +17,7 @@ function AdminPage() {
                     />
                     <Card
                         title="Edit Classes"
-                        link="https://google.com"
+                        link="/EditClass"
                         text="Class"
                     />
                     <Card

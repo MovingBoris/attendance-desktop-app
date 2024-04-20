@@ -6,10 +6,11 @@ import Register from './routes/register';
 import AdminPage from './routes/AdminPage';
 import AdminClasses from './routes/AdminClasses';
 import CsvUpload from './routes/csvupload';
-import AdminInstructors from './routes/AdminInstructors'
-import AdminAttendance from './routes/AdminAttendance'
+import AdminInstructors from './routes/AdminInstructors';
+import AdminAttendance from './routes/AdminAttendance';
 import InstructorPage from './routes/InstructorPage';
-import PostInstructor from './routes/PostInstructor'
+import PostInstructor from './routes/PostInstructor';
+import EditClass from './routes/EditClass';
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
           <Route path= '/AdminInstructors' element={<AdminInstructors/>} />
           <Route path= '/AdminAttendance' element={<AdminAttendance/>} />
           <Route path= '/PostInstructor' element={<PostInstructor/>} />
+          <Route path= '/EditClass' element={<EditClass/>} />
         </Routes>
       </Router>
     </div>
