@@ -40,8 +40,8 @@ function Navbar() {
                 <div className="dropdown">
                     <button className="dropbtn"> NESCC Attendance</button>
                     <div className="dropdown-content">
-                        <Link to="/">Mark Attendance</Link>
-                        <Link to="/">View Attendance</Link>
+                        <Link to="/EditAttendance">Mark Attendance</Link>
+                        <Link to="/AdminAttendance">View Attendance</Link>
                         <Link to="/">Attendance Reports</Link>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ function Navbar() {
                     <Link to="/AdminPage">Home</Link>
                 </li>
                 <li>
-                    <Link to="/">Students</Link>
+                    <Link to="/AdminAttendance">Students</Link>
                 </li>
                 <li>
                     <Link to="/Classes">Courses</Link>

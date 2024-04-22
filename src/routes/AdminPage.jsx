@@ -32,7 +32,7 @@ function AdminPage() {
                     />
                     <Card
                         title="Edit Attendance"
-                        link="https://google.com"
+                        link="/EditAttendance"
                         text="Attendance"
                     />
                     <Card

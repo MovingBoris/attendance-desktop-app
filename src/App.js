@@ -12,6 +12,7 @@ import InstructorPage from './routes/InstructorPage';
 import PostInstructor from './routes/PostInstructor';
 import EditClass from './routes/EditClass';
 import AddClass from './routes/AddClass';
+import EditAttendance from './routes/EditAttendance';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           <Route path= '/PostInstructor' element={<PostInstructor/>} />
           <Route path= '/EditClass' element={<EditClass/>} />
           <Route path= '/AddClass' element={<AddClass/>} />
-
+          <Route path= '/EditAttendance' element={<EditAttendance />} />
         </Routes>
       </Router>
     </div>
