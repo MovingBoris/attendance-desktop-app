@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LinkButton from "../components/LinkButton";
+import '../login.css';
 
 function Login() {
   // state variables for username and password
@@ -20,7 +21,7 @@ function Login() {
   };
 
   const handleRegisterClick = () => {
-    navigate("/Roles/login");
+    navigate("/register");
   }
 
   // handle submit event for the form
@@ -72,41 +73,45 @@ function Login() {
 
   // JSX for your component
   return (
-    <div className="containerbox">
-      <h3>Login</h3>
-      <LinkButton className="loginButton" message="Admin Page" componentRoute="/AdminPage" />
-      <LinkButton className="loginButton" message="Instructor Page" componentRoute="/InstructorPage" />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label> {/* Changed from email to username */}
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={username}
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-        <div>
+    <div className="login-register-bg">
+      <div className="containerbox">
+        <h3>Login</h3>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
           <input
-            type="checkbox"
-            id="rememberme"
-            name="rememberme"
-            checked={rememberme}
+            type="text"
+            id="username"
+            name="username"
+            value={username}
             onChange={handleChange}
           />
-          <span>Remember Me</span>
-        </div>
-        <button type="submit">Login</button>
-        <button onClick={handleRegisterClick}>Register</button>
-      </form>
-      {error && <p className="error">{error}</p>}
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+          <div>
+            <input
+              type="checkbox"
+              id="rememberme"
+              name="rememberme"
+              checked={rememberme}
+              onChange={handleChange}
+            />
+            <span>Remember Me</span>
+          </div>
+          <button type="submit">Login</button>
+          <button onClick={handleRegisterClick}>Register</button>
+        </form>
+        {error && <p className="error">{error}</p>}
+      </div>
+      <div className="footer">
+        <LinkButton className="loginButton" message="Admin Page" componentRoute="/AdminPage" />
+        <LinkButton className="loginButton" message="Instructor Page" componentRoute="/InstructorPage" />
+      </div>
     </div>
   );
 }
