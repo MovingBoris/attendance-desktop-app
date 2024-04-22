@@ -89,6 +89,7 @@ function Register() {
     };
 
     return (
+        <div className="login-register-bg">
         <div className="containerbox">
             <h3>Register</h3>
 
@@ -139,6 +140,8 @@ function Register() {
 
             {error && <p className="error">{error}</p>}
         </div>
+        </div>
+
     );
 }
 
