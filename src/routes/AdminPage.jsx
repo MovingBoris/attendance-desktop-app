@@ -12,7 +12,7 @@ function AdminPage() {
                 <div className="card-container">
                     <Card
                         title="View Classes"
-                        link="/AdminClasses"
+                        link="/Classes"
                         text="Class"
                     />
                     <Card
@@ -37,7 +37,7 @@ function AdminPage() {
                     />
                     <Card
                         title="View Instructors"
-                        link="/AdminInstructors"
+                        link="/ViewInstructors"
                         text="Instructors"
                     />
                     <Card
