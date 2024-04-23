@@ -1,35 +1,33 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false); // State to manage the logout confirmation popup
+    const navigate = useNavigate(); // Use navigate hook for redirection
 
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
     };
 
     // Function to handle logout
-    const handleLogout  = async () => {
-        
-        try {
-            const response = await fetch('/logout', {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json',
-                    
-                },
-                
-            });
-    
-            if (!response.ok) {
-                throw new Error('Logout request failed');
-            }
-    
-            window.location.href = '/login'; // Redirect to the login page
-        } catch (error) {
-            console.error('Error:', error);
-        }
+    const handleLogout = () => {
+        // Show the logout confirmation popup
+        setShowLogoutConfirmation(true);
+    };
+
+    // Function to confirm logout
+    const confirmLogout = async () => {
+        // After logout is successful, redirect to the login page
+        navigate("/login");
+    };
+
+    // Function to cancel logout
+    const cancelLogout = () => {
+        // Hide the logout confirmation popup
+        setShowLogoutConfirmation(false);
     };
 
     return (
@@ -60,12 +58,23 @@ function Navbar() {
                     <Link to="/ViewInstructors">Instructors</Link>
                 </li>
                 <li>
-                    <button id="logout" onClick={handleLogout}>Logout</button>
+                    <Link to="#" onClick={handleLogout}>Logout</Link>
                 </li>
             </ul>
             <div className="navbar-toggle" onClick={toggleNavbar}>
                 <i className={`fas ${isOpen ? "fa-times" : "fa-bars"}`}></i>
             </div>
+
+            {/* Logout confirmation popup */}
+            {showLogoutConfirmation && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <p>Are you sure you want to logout?</p>
+                        <button onClick={confirmLogout}>Yes</button>
+                        <button onClick={cancelLogout}>No</button>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 }
