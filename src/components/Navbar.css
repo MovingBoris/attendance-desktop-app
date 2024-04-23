@@ -163,3 +163,22 @@
   border-bottom: 2px solid #46c0b2; /* Add line under text */
   transition: border-bottom 0.3s ease; /* Add animation to line */  
 }
+
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #75bab5;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
