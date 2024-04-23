@@ -20,8 +20,28 @@ function Navbar() {
 
     // Function to confirm logout
     const confirmLogout = async () => {
-        // After logout is successful, redirect to the login page
-        navigate("/login");
+        try {
+            const response = await fetch('/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+
+                },
+                // no request body needed
+            });
+
+            if (response.ok) {
+
+                navigate("/login");
+
+            } else {
+
+                console.error('Logout failed');
+            }
+        } catch (error) {
+            // Handle network error or other exceptions
+            console.error('Error during logout:', error);
+        }
     };
 
     // Function to cancel logout
