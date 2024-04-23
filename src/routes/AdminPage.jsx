@@ -55,6 +55,11 @@ function AdminPage() {
                         link="/CsvUpload"
                         text="Class"
                     />
+                    <Card
+                        title="QR Code Generator"
+                        link="/QRGenerator"
+                        text="Utility"
+                    />
                 </div>
             </div>
         </div>

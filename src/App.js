@@ -14,6 +14,7 @@ import EditClass from './routes/EditClass';
 import AddClass from './routes/AddClass';
 import EditAttendance from './routes/EditAttendance';
 import EditInstructors from './routes/EditInstructors';
+import QRGenerator from './routes/QRGenerator';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path= '/AddClass' element={<AddClass/>} />
           <Route path= '/EditAttendance' element={<EditAttendance />} />
           <Route path= '/EditInstructors' element={<EditInstructors />} />
+          <Route path= '/QrGenerator' element={<QRGenerator />} />
         </Routes>
       </Router>
     </div>

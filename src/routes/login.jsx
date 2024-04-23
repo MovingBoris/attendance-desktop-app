@@ -24,7 +24,6 @@ function Login() {
     navigate("/register");
   }
 
-  // handle submit event for the form
   const handleSubmit = (e) => {
     e.preventDefault();
     // validate username and passwords
@@ -34,34 +33,41 @@ function Login() {
       // clear error message
       setError("");
       // post data to the /register api
-
+  
       var loginurl = "";
       if (rememberme === true)
-        loginurl = "/login?useCookies=true";
+        loginurl = "/api/Authentication/login?useCookies=true";
       else
-        loginurl = "/login?useSessionCookies=true";
-
+        loginurl = "/api/Authentication/login?useSessionCookies=true";
+  
       fetch(loginurl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: username, // Changed to username
+          username: username, // Changed to username
           password: password,
         }),
       })
-
+        .then((response) => response.json())
         .then((data) => {
           // handle success or error from the server
           console.log(data);
-          if (data.ok) {
-            setError("Successful Login.");
-            window.location.href = '/AdminPage';
-          }
-          else
+          if (data.message === "Login successful") {
+            if (data.role === "Admin") {
+              // Redirect to the admin page
+              navigate("/AdminPage");
+            } else if (data.role === "Instructor") {
+              // Redirect to the instructor page
+              navigate("/InstructorPage");
+            } else {
+              // Redirect to a default page for other roles
+              navigate("/DefaultPage");
+            }
+          } else {
             setError("Error Logging In.");
-
+          }
         })
         .catch((error) => {
           // handle network error
@@ -70,6 +76,7 @@ function Login() {
         });
     }
   };
+  
 
   // JSX for your component
   return (
