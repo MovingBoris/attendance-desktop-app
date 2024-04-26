@@ -16,6 +16,11 @@ function AdminPage() {
                         text="Class"
                     />
                     <Card
+                        title="Add Attendance"
+                        link="/AddAttendance"
+                        text="Class"
+                    />
+                    <Card
                         title="Edit Classes"
                         link="/EditClass"
                         text="Class"
