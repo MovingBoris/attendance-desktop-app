@@ -5,7 +5,8 @@ function AddAttendance() {
   const YourComponent = () => {
     const [studentUserName, setStudentUserName] = useState('');
     const [classId, setClassId] = useState('');
-    const [attendanceDateTime, setAttendanceDateTime] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
 
     const handleStudentUserNameChange = (event) => {
       setStudentUserName(event.target.value);
@@ -15,23 +16,27 @@ function AddAttendance() {
       setClassId(event.target.value);
     };
 
-    const handleAttendanceDateTimeChange = (event) => {
-      setAttendanceDateTime(event.target.value);
+    const handleDateChange = (event) => {
+      setDate(event.target.value);
+    };
+
+    const handleTimeChange = (event) => {
+      setTime(event.target.value);
     };
 
     const handleUpload = async () => {
-      if (!studentUserName || !classId || !attendanceDateTime) {
+      if (!studentUserName || !classId || !date || !time) {
         alert('Please fill in all fields.');
         return;
       }
 
-      // Format the date and time string to ISO 8601 format
-      const formattedDateTime = new Date(attendanceDateTime).toISOString();
+      // Combine date and time into a single string in ISO 8601 format
+      const dateTime = `${date}T${time}:00`;
 
       const requestData = {
         StudentUserName: studentUserName,
         ClassId: parseInt(classId),
-        AttendanceDateTime: formattedDateTime
+        AttendanceDateTime: dateTime
       };
 
       try {
@@ -66,8 +71,12 @@ function AddAttendance() {
           <input id="classIdInput" type="number" value={classId} onChange={handleClassIdChange} style={styles.input} />
         </div>
         <div style={styles.formGroup}>
-          <label htmlFor="attendanceDateTimeInput" style={styles.label}>Attendance Date & Time:</label>
-          <input id="attendanceDateTimeInput" type="datetime-local" value={attendanceDateTime} onChange={handleAttendanceDateTimeChange} style={styles.input} />
+          <label htmlFor="dateInput" style={styles.label}>Date:</label>
+          <input id="dateInput" type="date" value={date} onChange={handleDateChange} style={styles.input} />
+        </div>
+        <div style={styles.formGroup}>
+          <label htmlFor="timeInput" style={styles.label}>Time:</label>
+          <input id="timeInput" type="time" value={time} onChange={handleTimeChange} style={styles.input} />
         </div>
         <button onClick={handleUpload} style={styles.button}>Upload Attendance</button>
       </div>

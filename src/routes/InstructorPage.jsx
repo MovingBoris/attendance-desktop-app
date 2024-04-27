@@ -12,7 +12,7 @@ function InstructorPage() {
                 <div className="card-container">
                     <Card
                         title="View Classes"
-                        link="/AdminClasses"
+                        link="/Classes"
                         text="Class"
                     />
                      <Card
@@ -21,14 +21,24 @@ function InstructorPage() {
                         text="Attendance"
                     />
                     <Card
-                        title="Edit Attendance"
-                        link="https://google.com"
+                        title="Add Attendance"
+                        link="/AddAttendance"
                         text="Attendance"
                     />
                     <Card
-                        title="Post Attendance"
-                        link="https://google.com"
-                        text="Attendance"
+                        title="View Instructors"
+                        link="/ViewInstructors"
+                        text="Instructors"
+                    />
+                    <Card
+                        title="CSV Class Upload"
+                        link="/CsvUpload"
+                        text="Class"
+                    />
+                    <Card
+                        title="QR Code Generator"
+                        link="/QRGenerator"
+                        text="Utility"
                     />
                 </div>
             </div>
