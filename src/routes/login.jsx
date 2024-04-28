@@ -4,15 +4,13 @@ import LinkButton from "../components/LinkButton";
 import '../login.css';
 
 function Login() {
-  // state variables for username and password
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberme, setRememberme] = useState(false);
-  // state variable for error messages
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // handle change events for input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "username") setUsername(value);
@@ -26,13 +24,12 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // validate username and passwords
+    // validates username and passwords
     if (!username || !password) {
       setError("Please fill in all fields.");
     } else {
-      // clear error message
+
       setError("");
-      // post data to the /register api
   
       var loginurl = "";
       if (rememberme === true)
@@ -46,13 +43,13 @@ function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: username, // Changed to username
+          username: username, 
           password: password,
         }),
       })
         .then((response) => response.json())
         .then((data) => {
-          // handle success or error from the server
+
           console.log(data);
           if (data.message === "Login successful") {
             if (data.role === "Admin") {
@@ -62,8 +59,8 @@ function Login() {
               // Redirect to the instructor page
               navigate("/InstructorPage");
             } else {
-              // Redirect to a default page for other roles
-              navigate("/DefaultPage");
+              // if not in role, redirect to unauthorized page
+              navigate("/Unauthorized");
             }
           } else {
             setError("Error Logging In.");
@@ -77,8 +74,6 @@ function Login() {
     }
   };
   
-
-  // JSX for your component
   return (
     <div className="login-register-bg">
       <div className="containerbox">

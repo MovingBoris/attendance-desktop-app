@@ -12,7 +12,6 @@ function Navbar() {
         setIsOpen(!isOpen);
     };
 
-    // Function to handle logout
     const handleLogout = () => {
         // Show the logout confirmation popup
         setShowLogoutConfirmation(true);
@@ -58,7 +57,7 @@ function Navbar() {
                 <div className="dropdown">
                     <button className="dropbtn"> NESCC Attendance</button>
                     <div className="dropdown-content">
-                        <Link to="/EditAttendance">Mark Attendance</Link>
+                        <Link to="/AddAttendance">Mark Attendance</Link>
                         <Link to="/AdminAttendance">View Attendance</Link>
                         <Link to="/">Attendance Reports</Link>
                     </div>

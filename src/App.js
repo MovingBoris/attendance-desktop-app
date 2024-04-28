@@ -16,6 +16,7 @@ import EditAttendance from './routes/EditAttendance';
 import EditInstructors from './routes/EditInstructors';
 import QRGenerator from './routes/QRGenerator';
 import AddAttendance from './routes/AddAttendance';
+import Unauthorized from './routes/Unauthorized';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path= '/EditInstructors' element={<EditInstructors />} />
           <Route path= '/QrGenerator' element={<QRGenerator />} />
           <Route path= '/AddAttendance' element={<AddAttendance />} />
+          <Route path = '/Unauthorized' element = {<Unauthorized/>} />
         </Routes>
       </Router>
     </div>
